@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
    <testsuite name="MyTest" errors="0" tests="0" failures="0" time="0" timestamp="2013-05-24T10:23:58" />
-   <testsuite name="MyTest.constructor" errors="0" skipped="1" tests="3" failures="1" time="0.006" timestamp="2013-05-24T10:23:58">
+   <testsuite name="MyTest.TestResults" errors="0" skipped="1" tests="3" failures="1" time="0.006" timestamp="2013-05-24T10:23:58">
       <properties>
          <property name="java.vendor" value="Sun Microsystems Inc." />
          <property name="compiler.debug" value="on" />
          <property name="project.jdk.classpath" value="jdk.classpath.1.6" />
       </properties>
-      <testcase classname="MyTest.constructor" name="A failed test template" time="0.006">
+      <testcase classname="MyTest.TestResults" name="A failed test template" time="0.006">
 	<failure message="This should have failed">Assertion failed</failure>
       </testcase>
-      <testcase classname="MyTest.constructor" name="A skipped test template" time="0">
+      <testcase classname="MyTest.TestResults" name="A skipped test template" time="0">
          <skipped />
       </testcase>
-      <testcase classname="MyTest.constructor" name="A passed test template" time="0" />
+      <testcase classname="MyTest.TestResults" name="A passed test template" time="0" />
    </testsuite>
 </testsuites>
