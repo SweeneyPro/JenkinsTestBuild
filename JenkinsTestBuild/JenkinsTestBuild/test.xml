@@ -2,9 +2,7 @@
 <testsuites>
    <testsuite name="MyTest"/>
    <testsuite name="MyTest.TestResults">
-      <properties>
-      </properties>
-      <testcase classname="MyTest.TestResults" name="A failed test template" time="0.006">
+      <testcase classname="MyTest.TestResults" name="A failed test template" time="0">
 	<failure message="This should have failed">Assertion failed</failure>
       </testcase>
       <testcase classname="MyTest.TestResults" name="A skipped test template" time="0">
