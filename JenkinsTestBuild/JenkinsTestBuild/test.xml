@@ -3,9 +3,6 @@
    <testsuite name="MyTest"/>
    <testsuite name="MyTest.TestResults">
       <properties>
-         <property name="java.vendor" value="Sun Microsystems Inc." />
-         <property name="compiler.debug" value="on" />
-         <property name="project.jdk.classpath" value="jdk.classpath.1.6" />
       </properties>
       <testcase classname="MyTest.TestResults" name="A failed test template" time="0.006">
 	<failure message="This should have failed">Assertion failed</failure>
