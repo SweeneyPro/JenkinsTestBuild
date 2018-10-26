@@ -7,7 +7,7 @@
          <property name="project.jdk.classpath" value="jdk.classpath.1.6" />
       </properties>
       <testcase classname="MyTest.constructor" name="A failed test template" time="0.006">
-	<failure message="ThisShouldFail" />
+	<failure message="This should have failed">Assertion failed</failure>
       </testcase>
       <testcase classname="MyTest.constructor" name="A skipped test template" time="0">
          <skipped />
