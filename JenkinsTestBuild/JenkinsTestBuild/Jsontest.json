@@ -19,12 +19,12 @@
                     "keyword": "Info ",
                     "name": "Carried out a boot test stage",
                     "line": 4,
-                    /*"embeddings": [
+                    "embeddings": [
                         {
                             "mime_type": "image/png",
                             "data": "Zm9v"
                         }
-                    ],*/
+                    ],
                     "match": {
                         "location": "features/step_definitions/json_steps.rb:1"
                     },
