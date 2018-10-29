@@ -2,13 +2,13 @@
     {
         "uri": "features/embed.feature",
         "id": "Game Tests",
-        "keyword": "Feature",
+        "keyword": "Tests",
         "name": "ATestSuite",
         "line": 1,
         "description": "",
         "elements": [
             {
-                "id": "a-screenshot-feature;",
+                "id": "BootTestStage1",
                 "keyword": "Scenario",
                 "name": "",
                 "line": 3,
