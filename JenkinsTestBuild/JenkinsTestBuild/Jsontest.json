@@ -29,7 +29,7 @@
                         "name": "Carried out step 2 boot test",
                         "line": 4,
                         "result": {
-                            "status": "passed",
+                            "status": "skipped",
                             "duration": 1
                         }
                     },
@@ -38,7 +38,7 @@
                         "name": "Carried out step 3 boot test",
                         "line": 4,
                         "result": {
-                            "status": "failed",
+                            "status": "undefined",
                             "duration": 1
                         }
                     }
@@ -57,7 +57,7 @@
                         "name": "Carried out step 1 of boot test",
                         "line": 4,
                         "result": {
-                            "status": "passed",
+                            "status": "pending",
                             "duration": 1
                         }
                     },
