@@ -14,17 +14,17 @@
                 "line": 3,
                 "description": "",
                 "type": "scenario",
-                /*"steps": [
+                "steps": [
                 {
-                    "keyword": "Given ",
-                    "name": "I embed a screenshot",
+                    "keyword": "Info ",
+                    "name": "Carried out a boot test stage",
                     "line": 4,
-                    "embeddings": [
+                    /*"embeddings": [
                         {
                             "mime_type": "image/png",
                             "data": "Zm9v"
                         }
-                    ],
+                    ],*/
                     "match": {
                         "location": "features/step_definitions/json_steps.rb:1"
                     },
@@ -34,7 +34,6 @@
                     }
                 }
                 ]
-                */
             }
         ]
     }
