@@ -17,19 +17,24 @@
                 "steps": [
                     {
                         "keyword": "Info ",
-                        "name": "Carried out a boot test stage",
+                        "name": "Step 1",
                         "line": 4,
                         "result": {
                             "status": "passed",
                             "duration": 1
-                        }
-                    },
-                    {
+                        },
                         "keyword": "Info ",
-                        "name": "Carried out a boot test stage",
+                        "name": "Step 2",
                         "line": 4,
                         "result": {
-                            "status": "failed",
+                            "status": "passed",
+                            "duration": 1
+                        },
+                        "keyword": "Info ",
+                        "name": "Step 3",
+                        "line": 4,
+                        "result": {
+                            "status": "passed",
                             "duration": 1
                         }
                     }
