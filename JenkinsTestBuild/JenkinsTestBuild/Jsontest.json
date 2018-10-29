@@ -16,21 +16,21 @@
                 "type": "scenario",
                 "steps": [
                     {
-                        "keyword": "Info ",
+                        "keyword": "Info1 ",
                         "name": "Step 1",
                         "line": 4,
                         "result": {
                             "status": "passed",
                             "duration": 1
                         },
-                        "keyword": "Info ",
+                        "keyword": "Info2 ",
                         "name": "Step 2",
                         "line": 4,
                         "result": {
                             "status": "passed",
                             "duration": 1
                         },
-                        "keyword": "Info ",
+                        "keyword": "Info3 ",
                         "name": "Step 3",
                         "line": 4,
                         "result": {
