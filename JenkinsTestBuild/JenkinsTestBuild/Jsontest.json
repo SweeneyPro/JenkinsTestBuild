@@ -123,7 +123,7 @@
                         "name": "Carried out step 3 boot test",
                         "line": 4,
                         "result": {
-                            "status": "failed",
+                            "status": "passed",
                             "duration": 1
                         }
                     }
