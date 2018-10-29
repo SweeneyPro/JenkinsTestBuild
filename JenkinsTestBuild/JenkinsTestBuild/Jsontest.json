@@ -16,25 +16,29 @@
                 "type": "scenario",
                 "steps": [
                     {
-                        "keyword": "Info1 ",
-                        "name": "Step 1",
+                        "keyword": "Info ",
+                        "name": "Carried out step 1 of boot test",
                         "line": 4,
                         "result": {
                             "status": "passed",
                             "duration": 1
-                        },
-                        "keyword": "Info2 ",
-                        "name": "Step 2",
+                        }
+                    },
+                    {
+                        "keyword": "Info ",
+                        "name": "Carried out step 2 boot test",
                         "line": 4,
                         "result": {
                             "status": "passed",
                             "duration": 1
-                        },
-                        "keyword": "Info3 ",
-                        "name": "Step 3",
+                        }
+                    },
+                    {
+                        "keyword": "Info ",
+                        "name": "Carried out step 3 boot test",
                         "line": 4,
                         "result": {
-                            "status": "passed",
+                            "status": "failed",
                             "duration": 1
                         }
                     }
