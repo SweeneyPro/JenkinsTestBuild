@@ -8,8 +8,8 @@
         "description": "",
         "elements": [
             {
-                "id": "BootTestStage1",
-                "keyword": "Scenario",
+                "id": "BootTest1",
+                "keyword": "BootTestStage1",
                 "name": "",
                 "line": 3,
                 "description": "",
