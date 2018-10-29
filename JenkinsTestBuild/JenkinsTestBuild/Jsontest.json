@@ -19,9 +19,6 @@
                         "keyword": "Info ",
                         "name": "Carried out a boot test stage",
                         "line": 4,
-                        "match": {
-                            "location": "features/step_definitions/json_steps.rb:1"
-                        },
                         "result": {
                             "status": "passed",
                             "duration": 1
