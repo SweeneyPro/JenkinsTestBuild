@@ -23,6 +23,15 @@
                             "status": "passed",
                             "duration": 1
                         }
+                    },
+                    {
+                        "keyword": "Info ",
+                        "name": "Carried out a boot test stage",
+                        "line": 4,
+                        "result": {
+                            "status": "failed",
+                            "duration": 1
+                        }
                     }
                 ]
             }
