@@ -43,6 +43,43 @@
                         }
                     }
                 ]
+            },
+            {
+                "id": "BootTest2",
+                "keyword": "BootTestStage2",
+                "name": "",
+                "line": 3,
+                "description": "",
+                "type": "scenario",
+                "steps": [
+                    {
+                        "keyword": "Info ",
+                        "name": "Carried out step 1 of boot test",
+                        "line": 4,
+                        "result": {
+                            "status": "passed",
+                            "duration": 1
+                        }
+                    },
+                    {
+                        "keyword": "Info ",
+                        "name": "Carried out step 2 boot test",
+                        "line": 4,
+                        "result": {
+                            "status": "passed",
+                            "duration": 1
+                        }
+                    },
+                    {
+                        "keyword": "Info ",
+                        "name": "Carried out step 3 boot test",
+                        "line": 4,
+                        "result": {
+                            "status": "passed",
+                            "duration": 1
+                        }
+                    }
+                ]
             }
         ]
     }
