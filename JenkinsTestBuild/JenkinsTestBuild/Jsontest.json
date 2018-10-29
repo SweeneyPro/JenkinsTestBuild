@@ -1,7 +1,7 @@
 [
     {
         "uri": "features/embed.feature",
-        "id": "a-screenshot-feature",
+        "id": "Game Tests",
         "keyword": "Feature",
         "name": "A screenshot feature",
         "line": 1,
