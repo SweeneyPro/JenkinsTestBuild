@@ -1,5 +1,6 @@
 [
     {
+        "uri": "features/embed.feature",
         "id": "Game Tests",
         "keyword": "Tests",
         "name": "ATestSuite",
