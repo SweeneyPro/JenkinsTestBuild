@@ -1,0 +1,11 @@
+{
+	"uri":	"somevalue",
+	"id":	"GameTest",
+	"keyword":	"Tests",
+	"name":	"ATestSuite",
+	"line":	1,
+	"description":	"",
+	"elements":	[{
+			"id":	"BootTest1"
+		}]
+}

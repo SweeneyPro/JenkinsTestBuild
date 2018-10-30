@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild;C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\googletest-master\googletest\include;C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\googletest-master\googletest;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\nlohmann;C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -80,7 +80,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild;C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\googletest-master\googletest\include;C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\googletest-master\googletest;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\nlohmann;C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -95,7 +95,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\LocalAdmin\Downloads\googletest-master\googletest-master\googletest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\nlohmann;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +130,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\Users\LocalAdmin\Documents\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild\nlohmann;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,12 +160,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cJSON.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Placeholder.h" />
-    <ClInclude Include="tinystr.h" />
-    <ClInclude Include="tinyxml.h" />
+    <ClInclude Include="TestLogger.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cJSON.c" />
     <ClCompile Include="JenkinsTestBuild.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -173,10 +175,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Placeholder.cpp" />
-    <ClCompile Include="tinystr.cpp" />
-    <ClCompile Include="tinyxml.cpp" />
-    <ClCompile Include="tinyxmlerror.cpp" />
-    <ClCompile Include="tinyxmlparser.cpp" />
+    <ClCompile Include="TestLogger.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

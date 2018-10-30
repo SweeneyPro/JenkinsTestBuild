@@ -21,10 +21,10 @@
     <ClInclude Include="Placeholder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tinystr.h">
+    <ClInclude Include="cJSON.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tinyxml.h">
+    <ClInclude Include="TestLogger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,16 +38,10 @@
     <ClCompile Include="Placeholder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tinystr.cpp">
+    <ClCompile Include="cJSON.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tinyxml.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tinyxmlerror.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tinyxmlparser.cpp">
+    <ClCompile Include="TestLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
