@@ -1,51 +1,25 @@
-[
-    {
-        "uri": "features/embed.feature",
-        "id": "Game Tests",
-        "keyword": "Tests",
-        "name": "ATestSuite",
-        "line": 1,
-        "description": "",
-        "elements": [
-            {
-                "id": "BootTest1",
-                "keyword": "BootTestStage1",
-                "name": "",
-                "line": 3,
-                "description": "",
-                "type": "scenario",
-                "steps": [
-                    {
-                        "keyword": "Info ",
-                        "name": "Carried out step 1 of boot test",
-                        "line": 4,
-                        "result": {
-                            "status": "passed",
-                            "duration": 1
-                        }
-                    },
-                    {
-                        "keyword": "Info ",
-                        "name": "Carried out step 2 boot test",
-                        "line": 4,
-                        "result": {
-                            "status": "skipped",
-                            "duration": 1
-                        }
-                    },
-                    {
-                        "keyword": "Info ",
-                        "name": "Carried out step 3 boot test",
-                        "line": 4,
-                        "result": {
-                            "status": "undefined",
-                            "duration": 1
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-
-
-]
+{
+	"uri":	"features/embed.features",
+	"id":	"Game Tests",
+	"keyword":	"Tests",
+	"name":	"A Test Suite",
+	"line":	1,
+	"description":	"",
+	"elements":	[{
+			"id":	"Boot Test 1",
+			"keyword":	"Boot Test Stage 1",
+			"name":	"",
+			"line":	3,
+			"description":	"",
+			"type":	"scenario",
+			"steps":	[{
+					"keyword":	"Info",
+					"name":	"Carried out step",
+					"line":	4,
+					"result":	{
+						"status":	"passed",
+						"duration":	1
+					}
+				}]
+		}]
+}

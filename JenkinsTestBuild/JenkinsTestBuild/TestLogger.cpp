@@ -65,7 +65,7 @@ void TestLogger::UpdateJSON()
 
 	cJSON* json = cJSON_Parse(output);
 	std::ofstream myfile;
-	myfile.open("example.json");
+	myfile.open("Jsontest.json");
 	myfile << output;
 	myfile.close();
 
@@ -128,3 +128,58 @@ void TestLogger::CreateStep(cJSON* _parentScenario)
 	cJSON_AddItemToObject(test, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].status));
 	cJSON_AddItemToObject(test, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].duration));
 }
+
+
+/*
+[
+	{
+		"uri": "features/embed.feature",
+		"id": "Game Tests",
+		"keyword": "Tests",
+		"name": "ATestSuite",
+		"line": 1,
+		"description": "",
+		"elements": [
+			{
+				"id": "BootTest1",
+				"keyword": "BootTestStage1",
+				"name": "",
+				"line": 3,
+				"description": "",
+				"type": "scenario",
+				"steps": [
+					{
+						"keyword": "Info ",
+						"name": "Carried out step 1 of boot test",
+						"line": 4,
+						"result": {
+							"status": "passed",
+							"duration": 1
+						}
+					},
+					{
+						"keyword": "Info ",
+						"name": "Carried out step 2 boot test",
+						"line": 4,
+						"result": {
+							"status": "skipped",
+							"duration": 1
+						}
+					},
+					{
+						"keyword": "Info ",
+						"name": "Carried out step 3 boot test",
+						"line": 4,
+						"result": {
+							"status": "undefined",
+							"duration": 1
+						}
+					}
+				]
+			}
+		]
+	}
+
+
+]
+*/
