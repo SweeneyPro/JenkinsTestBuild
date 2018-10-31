@@ -75,8 +75,11 @@ cJSON* TestLogger::CreateFeature()
 {
 
 	//Feature
-
+	cJSON* rooty = cJSON_CreateArray();
+	
 	cJSON* root = cJSON_CreateObject();
+
+	cJSON_AddItemToArray(rooty, root);
 
 	cJSON_AddItemToObject(root, "uri", cJSON_CreateString(BaseNodeFeature->uri));
 	cJSON_AddItemToObject(root, "id", cJSON_CreateString(BaseNodeFeature->id));
@@ -92,7 +95,7 @@ cJSON* TestLogger::CreateFeature()
 	
 	CreateScenario(test);
 
-	return root;
+	return rooty;
 }
 
 void TestLogger::CreateScenario(cJSON* _parentFeature)
