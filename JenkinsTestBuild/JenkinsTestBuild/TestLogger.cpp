@@ -1,5 +1,5 @@
 #include "TestLogger.h"
-
+#include <fstream>
 Step::Step(const char* _keyword,
 	const char* _name,
 	int _line,
@@ -55,55 +55,76 @@ TestLogger::~TestLogger()
 {
 }
 
-void TestLogger::CreateFeature(const char* title)
+void TestLogger::UpdateJSON()
 {
-/*
-	featureRootNode = cJSON_CreateObject();
+	cJSON* root = CreateFeature();
+	char *output;
 
-	cJSON *urivalue;
-	urivalue = cJSON_CreateString("somevalue");
-	cJSON_AddItemToObject(featureRootNode, "uri", urivalue);
+	output = cJSON_Print(root);
+	//printf("%s\n", output);
 
-	//
-	cJSON *idvalue;
-	idvalue = cJSON_CreateString("GameTest");
-	cJSON_AddItemToObject(featureRootNode, "id", idvalue);
-	//
+	cJSON* json = cJSON_Parse(output);
+	std::ofstream myfile;
+	myfile.open("example.json");
+	myfile << output;
+	myfile.close();
 
-	//
-	cJSON *keywordvalue;
-	keywordvalue = cJSON_CreateString("Tests");
-	cJSON_AddItemToObject(featureRootNode, "keyword", keywordvalue);
-	//
-
-	//
-	cJSON *namevalue;
-	namevalue = cJSON_CreateString(title);
-	cJSON_AddItemToObject(featureRootNode, "name", namevalue);
-	//
-
-	//
-	cJSON *linevalue;
-	linevalue = cJSON_CreateNumber(1);
-	cJSON_AddItemToObject(featureRootNode, "line", linevalue);
-	//
-
-	//
-	cJSON *descriptionvalue;
-	descriptionvalue = cJSON_CreateString("");
-	cJSON_AddItemToObject(featureRootNode, "description", descriptionvalue);
-
-	cJSON *elementsvalue;
-	elementsvalue = cJSON_CreateArray();
-	cJSON_AddItemToObject(featureRootNode, "elements", elementsvalue);
-*/
 }
 
-void TestLogger::CreateScenario(const char * title)
+cJSON* TestLogger::CreateFeature()
 {
+
+	//Feature
+
+	cJSON* root = cJSON_CreateObject();
+
+	cJSON_AddItemToObject(root, "uri", cJSON_CreateString(BaseNodeFeature->uri));
+	cJSON_AddItemToObject(root, "id", cJSON_CreateString(BaseNodeFeature->id));
+	cJSON_AddItemToObject(root, "keyword", cJSON_CreateString(BaseNodeFeature->keyword));
+	cJSON_AddItemToObject(root, "name", cJSON_CreateString(BaseNodeFeature->name));
+	cJSON_AddItemToObject(root, "line", cJSON_CreateNumber(BaseNodeFeature->line));
+	cJSON_AddItemToObject(root, "description", cJSON_CreateString(BaseNodeFeature->description));
+
+	cJSON* scenarioarrayvalue = cJSON_CreateArray();
+	cJSON_AddItemToObject(root, "elements", scenarioarrayvalue);
+	cJSON* test = cJSON_CreateObject();
+	cJSON_AddItemToArray(scenarioarrayvalue, test);
 	
-	//
-	//cJSON *subidvalue;
-	//subidvalue = cJSON_CreateString("BootTest1");
-	//cJSON_AddItemToObject(element1, "id", subidvalue);
+	CreateScenario(test);
+
+	return root;
+}
+
+void TestLogger::CreateScenario(cJSON* _parentFeature)
+{
+	cJSON_AddItemToObject(_parentFeature, "id", cJSON_CreateString(BaseNodeFeature->Scenarios[0].id));
+	cJSON_AddItemToObject(_parentFeature, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[0].keyword));
+	cJSON_AddItemToObject(_parentFeature, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[0].name));
+	cJSON_AddItemToObject(_parentFeature, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].line));
+	cJSON_AddItemToObject(_parentFeature, "description", cJSON_CreateString(BaseNodeFeature->Scenarios[0].description));
+	cJSON_AddItemToObject(_parentFeature, "type", cJSON_CreateString(BaseNodeFeature->Scenarios[0].type));
+	
+	cJSON* steparrayvalue = cJSON_CreateArray();
+	cJSON_AddItemToObject(_parentFeature, "steps", steparrayvalue);
+	cJSON* test = cJSON_CreateObject();
+	cJSON_AddItemToArray(steparrayvalue, test);
+
+	CreateStep(test);
+
+}
+
+void TestLogger::CreateStep(cJSON* _parentScenario)
+{
+
+	cJSON_AddItemToObject(_parentScenario, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].keyword));
+	cJSON_AddItemToObject(_parentScenario, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].name));
+	cJSON_AddItemToObject(_parentScenario, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].line));
+
+	
+	
+	cJSON* test = cJSON_CreateObject();
+	cJSON_AddItemToObject(_parentScenario, "result", test);
+
+	cJSON_AddItemToObject(test, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].status));
+	cJSON_AddItemToObject(test, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].duration));
 }

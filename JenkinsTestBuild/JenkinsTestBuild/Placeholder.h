@@ -12,7 +12,7 @@ public:
 	Placeholder();
 	~Placeholder();
 
-	int PlaceHolderValue = 5;
+	Placeholder* PlaceHolderValue;
 	void MyTest();
 };
 

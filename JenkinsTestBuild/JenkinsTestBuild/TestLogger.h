@@ -80,13 +80,13 @@ public:
 
 	
 	Feature* BaseNodeFeature;
-	
+	void UpdateJSON();
 
 private:
 	
-	void CreateFeature(const char* title);
-	void CreateScenario(const char* title);
-	void CreateStep();
+	cJSON* CreateFeature();
+	void CreateScenario(cJSON* _parentFeature);
+	void CreateStep(cJSON* _parentScenario);
 };
 
 
