@@ -86,7 +86,7 @@ private:
 	
 	cJSON* CreateFeature();
 	void CreateScenario(cJSON* _parentFeature);
-	void CreateStep(cJSON* _parentScenario);
+	void CreateStep(cJSON* _parentScenario, int _scenario, int _step);
 };
 
 

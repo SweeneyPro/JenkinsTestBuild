@@ -119,13 +119,13 @@ void TestLogger::CreateScenario(cJSON* _parentFeature)
 		cJSON* stepArrayValue = cJSON_CreateArray();
 		cJSON_AddItemToObject(_parentFeature, "steps", stepArrayValue);
 
-		for (int j = 0; j < BaseNodeFeature->Scenarios[0].Steps.size(); j++)
+		for (int j = 0; j < BaseNodeFeature->Scenarios[i].Steps.size(); j++)
 		{
 
 			cJSON* subObject = cJSON_CreateObject();
 			cJSON_AddItemToArray(stepArrayValue, subObject);
 
-			CreateStep(subObject);
+			CreateStep(subObject, i, j);
 		}
 	}
 
@@ -133,21 +133,21 @@ void TestLogger::CreateScenario(cJSON* _parentFeature)
 
 //Creates a Step - A Step is the lowest-tier hierarchical
 //object on the Cucumber plugin test and contains the individual results from tests
-void TestLogger::CreateStep(cJSON* _parentScenario)
+void TestLogger::CreateStep(cJSON* _parentScenario, int _scenario, int _step)
 {
 
 	
-		cJSON_AddItemToObject(_parentScenario, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].keyword));
-		cJSON_AddItemToObject(_parentScenario, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].name));
-		cJSON_AddItemToObject(_parentScenario, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].line));
+		cJSON_AddItemToObject(_parentScenario, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[_scenario].Steps[_step].keyword));
+		cJSON_AddItemToObject(_parentScenario, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[_scenario].Steps[_step].name));
+		cJSON_AddItemToObject(_parentScenario, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[_scenario].Steps[_step].line));
 
 
 
 		cJSON* testResult = cJSON_CreateObject();
 		cJSON_AddItemToObject(_parentScenario, "result", testResult);
 
-		cJSON_AddItemToObject(testResult, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].status));
-		cJSON_AddItemToObject(testResult, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].duration));
+		cJSON_AddItemToObject(testResult, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[_scenario].Steps[_step].status));
+		cJSON_AddItemToObject(testResult, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[_scenario].Steps[_step].duration));
 
 
 	

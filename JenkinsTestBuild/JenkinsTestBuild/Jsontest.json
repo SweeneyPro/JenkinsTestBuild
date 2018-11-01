@@ -41,7 +41,7 @@
 						"name":	"Carried out step",
 						"line":	4,
 						"result":	{
-							"status":	"passed",
+							"status":	"failed",
 							"duration":	1
 						}
 					}, {
@@ -49,7 +49,7 @@
 						"name":	"Carried out step",
 						"line":	4,
 						"result":	{
-							"status":	"passed",
+							"status":	"failed",
 							"duration":	1
 						}
 					}]
