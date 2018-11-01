@@ -17,38 +17,6 @@
 						"name":	"Carried out step",
 						"line":	4,
 						"result":	{
-							"status":	"passed",
-							"duration":	1
-						}
-					}, {
-						"keyword":	"Info",
-						"name":	"Carried out step",
-						"line":	4,
-						"result":	{
-							"status":	"passed",
-							"duration":	1
-						}
-					}, {
-						"keyword":	"Info",
-						"name":	"Carried out step",
-						"line":	4,
-						"result":	{
-							"status":	"passed",
-							"duration":	1
-						}
-					}, {
-						"keyword":	"Info",
-						"name":	"Carried out step",
-						"line":	4,
-						"result":	{
-							"status":	"failed",
-							"duration":	1
-						}
-					}, {
-						"keyword":	"Info",
-						"name":	"Carried out step",
-						"line":	4,
-						"result":	{
 							"status":	"failed",
 							"duration":	1
 						}
