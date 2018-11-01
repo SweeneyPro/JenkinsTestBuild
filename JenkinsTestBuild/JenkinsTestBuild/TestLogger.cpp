@@ -106,19 +106,28 @@ cJSON* TestLogger::CreateFeature()
 //object on the Cucumber plugin test and contains Step sub-objects
 void TestLogger::CreateScenario(cJSON* _parentFeature)
 {
-	cJSON_AddItemToObject(_parentFeature, "id", cJSON_CreateString(BaseNodeFeature->Scenarios[0].id));
-	cJSON_AddItemToObject(_parentFeature, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[0].keyword));
-	cJSON_AddItemToObject(_parentFeature, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[0].name));
-	cJSON_AddItemToObject(_parentFeature, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].line));
-	cJSON_AddItemToObject(_parentFeature, "description", cJSON_CreateString(BaseNodeFeature->Scenarios[0].description));
-	cJSON_AddItemToObject(_parentFeature, "type", cJSON_CreateString(BaseNodeFeature->Scenarios[0].type));
-	
-	cJSON* stepArrayValue = cJSON_CreateArray();
-	cJSON_AddItemToObject(_parentFeature, "steps", stepArrayValue);
-	cJSON* subObject = cJSON_CreateObject();
-	cJSON_AddItemToArray(stepArrayValue, subObject);
+	for (int i = 0; i < BaseNodeFeature->Scenarios.size(); i++)
+	{
 
-	CreateStep(subObject);
+		cJSON_AddItemToObject(_parentFeature, "id", cJSON_CreateString(BaseNodeFeature->Scenarios[i].id));
+		cJSON_AddItemToObject(_parentFeature, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[i].keyword));
+		cJSON_AddItemToObject(_parentFeature, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[i].name));
+		cJSON_AddItemToObject(_parentFeature, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[i].line));
+		cJSON_AddItemToObject(_parentFeature, "description", cJSON_CreateString(BaseNodeFeature->Scenarios[i].description));
+		cJSON_AddItemToObject(_parentFeature, "type", cJSON_CreateString(BaseNodeFeature->Scenarios[i].type));
+	
+		cJSON* stepArrayValue = cJSON_CreateArray();
+		cJSON_AddItemToObject(_parentFeature, "steps", stepArrayValue);
+
+		for (int j = 0; j < BaseNodeFeature->Scenarios[0].Steps.size(); j++)
+		{
+
+			cJSON* subObject = cJSON_CreateObject();
+			cJSON_AddItemToArray(stepArrayValue, subObject);
+
+			CreateStep(subObject);
+		}
+	}
 
 }
 
@@ -127,17 +136,23 @@ void TestLogger::CreateScenario(cJSON* _parentFeature)
 void TestLogger::CreateStep(cJSON* _parentScenario)
 {
 
-	cJSON_AddItemToObject(_parentScenario, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].keyword));
-	cJSON_AddItemToObject(_parentScenario, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].name));
-	cJSON_AddItemToObject(_parentScenario, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].line));
+	
+		cJSON_AddItemToObject(_parentScenario, "keyword", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].keyword));
+		cJSON_AddItemToObject(_parentScenario, "name", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].name));
+		cJSON_AddItemToObject(_parentScenario, "line", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].line));
+
+
+
+		cJSON* testResult = cJSON_CreateObject();
+		cJSON_AddItemToObject(_parentScenario, "result", testResult);
+
+		cJSON_AddItemToObject(testResult, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].status));
+		cJSON_AddItemToObject(testResult, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].duration));
+
 
 	
-	
-	cJSON* testResult = cJSON_CreateObject();
-	cJSON_AddItemToObject(_parentScenario, "result", testResult);
 
-	cJSON_AddItemToObject(testResult, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].status));
-	cJSON_AddItemToObject(testResult, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].duration));
+		
 }
 
 
