@@ -90,13 +90,3 @@ private:
 };
 
 
-
-/*
-"uri": "features/embed.feature",
-		"id": "Game Tests",
-		"keyword": "Tests",
-		"name": "ATestSuite",
-		"line": 1,
-		"description": "",
-
-*/
