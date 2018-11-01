@@ -72,7 +72,7 @@ class TestLogger
 
 public:
 
-	// title is the feature title on jenkins
+	
 	TestLogger();
 	~TestLogger();
 	

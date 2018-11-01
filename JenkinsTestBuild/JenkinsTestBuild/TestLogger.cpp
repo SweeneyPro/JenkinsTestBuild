@@ -46,7 +46,7 @@ Feature::Feature(const char* _uri,
 
 TestLogger::TestLogger()
 {
-	//CreateFeature(title);
+	
 	
 }
 
@@ -61,43 +61,49 @@ void TestLogger::UpdateJSON()
 	char *output;
 
 	output = cJSON_Print(root);
-	//printf("%s\n", output);
-
 	cJSON* json = cJSON_Parse(output);
 	std::ofstream myfile;
 	myfile.open("Jsontest.json");
 	myfile << output;
 	myfile.close();
 
+	
+	cJSON_Delete(json);
+	cJSON_Delete(root);
+	
 }
 
+//Creates a feature - A Feature is the top hierarchical
+//parent on the Cucumber plugin test and contains Scenario sub-objects
 cJSON* TestLogger::CreateFeature()
 {
 
 	//Feature
-	cJSON* rooty = cJSON_CreateArray();
+	cJSON* logRoot = cJSON_CreateArray();
 	
-	cJSON* root = cJSON_CreateObject();
+	cJSON* subRoot = cJSON_CreateObject();
 
-	cJSON_AddItemToArray(rooty, root);
+	cJSON_AddItemToArray(logRoot, subRoot);
 
-	cJSON_AddItemToObject(root, "uri", cJSON_CreateString(BaseNodeFeature->uri));
-	cJSON_AddItemToObject(root, "id", cJSON_CreateString(BaseNodeFeature->id));
-	cJSON_AddItemToObject(root, "keyword", cJSON_CreateString(BaseNodeFeature->keyword));
-	cJSON_AddItemToObject(root, "name", cJSON_CreateString(BaseNodeFeature->name));
-	cJSON_AddItemToObject(root, "line", cJSON_CreateNumber(BaseNodeFeature->line));
-	cJSON_AddItemToObject(root, "description", cJSON_CreateString(BaseNodeFeature->description));
+	cJSON_AddItemToObject(subRoot, "uri", cJSON_CreateString(BaseNodeFeature->uri));
+	cJSON_AddItemToObject(subRoot, "id", cJSON_CreateString(BaseNodeFeature->id));
+	cJSON_AddItemToObject(subRoot, "keyword", cJSON_CreateString(BaseNodeFeature->keyword));
+	cJSON_AddItemToObject(subRoot, "name", cJSON_CreateString(BaseNodeFeature->name));
+	cJSON_AddItemToObject(subRoot, "line", cJSON_CreateNumber(BaseNodeFeature->line));
+	cJSON_AddItemToObject(subRoot, "description", cJSON_CreateString(BaseNodeFeature->description));
 
-	cJSON* scenarioarrayvalue = cJSON_CreateArray();
-	cJSON_AddItemToObject(root, "elements", scenarioarrayvalue);
-	cJSON* test = cJSON_CreateObject();
-	cJSON_AddItemToArray(scenarioarrayvalue, test);
+	cJSON* scenarioArrayValue = cJSON_CreateArray();
+	cJSON_AddItemToObject(subRoot, "elements", scenarioArrayValue);
+	cJSON* subObject = cJSON_CreateObject();
+	cJSON_AddItemToArray(scenarioArrayValue, subObject);
 	
-	CreateScenario(test);
+	CreateScenario(subObject);
 
-	return rooty;
+	return logRoot;
 }
 
+//Creates a Scenario - A Scenario is the middle-tier hierarchical
+//object on the Cucumber plugin test and contains Step sub-objects
 void TestLogger::CreateScenario(cJSON* _parentFeature)
 {
 	cJSON_AddItemToObject(_parentFeature, "id", cJSON_CreateString(BaseNodeFeature->Scenarios[0].id));
@@ -107,15 +113,17 @@ void TestLogger::CreateScenario(cJSON* _parentFeature)
 	cJSON_AddItemToObject(_parentFeature, "description", cJSON_CreateString(BaseNodeFeature->Scenarios[0].description));
 	cJSON_AddItemToObject(_parentFeature, "type", cJSON_CreateString(BaseNodeFeature->Scenarios[0].type));
 	
-	cJSON* steparrayvalue = cJSON_CreateArray();
-	cJSON_AddItemToObject(_parentFeature, "steps", steparrayvalue);
-	cJSON* test = cJSON_CreateObject();
-	cJSON_AddItemToArray(steparrayvalue, test);
+	cJSON* stepArrayValue = cJSON_CreateArray();
+	cJSON_AddItemToObject(_parentFeature, "steps", stepArrayValue);
+	cJSON* subObject = cJSON_CreateObject();
+	cJSON_AddItemToArray(stepArrayValue, subObject);
 
-	CreateStep(test);
+	CreateStep(subObject);
 
 }
 
+//Creates a Step - A Step is the lowest-tier hierarchical
+//object on the Cucumber plugin test and contains the individual results from tests
 void TestLogger::CreateStep(cJSON* _parentScenario)
 {
 
@@ -125,13 +133,16 @@ void TestLogger::CreateStep(cJSON* _parentScenario)
 
 	
 	
-	cJSON* test = cJSON_CreateObject();
-	cJSON_AddItemToObject(_parentScenario, "result", test);
+	cJSON* testResult = cJSON_CreateObject();
+	cJSON_AddItemToObject(_parentScenario, "result", testResult);
 
-	cJSON_AddItemToObject(test, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].status));
-	cJSON_AddItemToObject(test, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].duration));
+	cJSON_AddItemToObject(testResult, "status", cJSON_CreateString(BaseNodeFeature->Scenarios[0].Steps[0].status));
+	cJSON_AddItemToObject(testResult, "duration", cJSON_CreateNumber(BaseNodeFeature->Scenarios[0].Steps[0].duration));
 }
 
+
+// Below is a working example of a json file laid out correctly for Cucumber
+// refer to this if you need help getting the format correct
 
 /*
 [
