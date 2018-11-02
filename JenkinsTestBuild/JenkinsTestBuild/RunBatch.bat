@@ -1,2 +1,1 @@
-cd C:\Jenkins\workspace\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\JenkinsTestBuild\JenkinsTestBuild\
-JenkinsTestBuild
+C:\Jenkins\workspace\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\JenkinsTestBuild\JenkinsTestBuild\JenkinsTestBuild.exe
