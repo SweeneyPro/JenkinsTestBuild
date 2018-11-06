@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Run Boot Stage 1') {
       steps {
-        bat(script: 'start C:\\Jenkins\\workspace\\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\\JenkinsTestBuild\\JenkinsTestBuild\\Debug\\JenkinsTestBuild.exe BootStage1', returnStatus: true, returnStdout: true)
+        bat(script: 'start C:\\Jenkins\\workspace\\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\\JenkinsTestBuild\\JenkinsTestBuild\\Debug\\JenkinsTestBuild.exe', returnStatus: true, returnStdout: true)
       }
     }
     stage('TestResults') {
