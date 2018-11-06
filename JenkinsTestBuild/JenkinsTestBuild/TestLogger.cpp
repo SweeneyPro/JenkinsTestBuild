@@ -63,10 +63,10 @@ void TestLogger::UpdateJSON()
 	output = cJSON_Print(root);
 	cJSON* json = cJSON_Parse(output);
 	std::ofstream myfile;
-	myfile.open("Jsontest.json");
+	myfile.open(FileName + Extension);
 	myfile << output;
 	myfile.close();
-
+	
 	
 	cJSON_Delete(json);
 	cJSON_Delete(root);

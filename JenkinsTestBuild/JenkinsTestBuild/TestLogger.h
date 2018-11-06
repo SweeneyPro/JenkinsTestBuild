@@ -78,12 +78,12 @@ public:
 	
 	
 
-	
+	std::string FileName;
 	Feature* BaseNodeFeature;
 	void UpdateJSON();
 
 private:
-	
+	const std::string Extension = ".json";
 	cJSON* CreateFeature();
 	void CreateScenario(cJSON* _parentFeature);
 	void CreateStep(cJSON* _parentScenario, int _scenario, int _step);
