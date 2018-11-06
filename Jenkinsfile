@@ -11,9 +11,9 @@ pipeline {
         bat 'call C:\\Jenkins\\workspace\\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\\JenkinsTestBuild\\JenkinsTestBuild\\CompileBatch.bat'
       }
     }
-    stage('Run') {
+    stage('Run Boot Stage 1') {
       steps {
-        bat 'call C:\\Jenkins\\workspace\\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\\JenkinsTestBuild\\JenkinsTestBuild\\RunBatch.bat'
+        sh 'C:\\Jenkins\\workspace\\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\\JenkinsTestBuild\\JenkinsTestBuild\\Debug\\JenkinsTestBuild.exe BootStage1'
       }
     }
     stage('TestResults') {
