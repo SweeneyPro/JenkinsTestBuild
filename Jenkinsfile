@@ -30,7 +30,10 @@ pipeline {
         }
         stage('Boot Stage 4') {
           steps {
-            bat 'call C:\\Jenkins\\workspace\\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\\JenkinsTestBuild\\x64\\Debug\\JenkinsTestBuild.exe BootStage4'
+            catchError() {
+              bat 'call C:\\Jenkins\\workspace\\JenkinsTestBuild_master-HSFE4JB3YDTDRHV5TTSFLB7QDJY25TPJ74C6A5YHH6YY2QGFGWPQ\\JenkinsTestBuild\\x64\\Debug\\JenkinsTestBuild.exe BootStage4'
+            }
+
           }
         }
         stage('Boot Stage 5') {
