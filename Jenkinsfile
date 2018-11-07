@@ -45,7 +45,7 @@ pipeline {
     }
     stage('TestResults') {
       steps {
-        livingDocs(numbered: true, sectAnchors: true)
+        livingDocs(numbered: true, sectAnchors: true, toc: 'CENTER', format: 'ALL')
       }
     }
   }
